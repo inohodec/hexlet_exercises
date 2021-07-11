@@ -6,9 +6,4 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
-    'Ostepan\\Lib\\Denom' => $baseDir . '/assets/Denom.php',
-    'Ostepan\\Lib\\Denominator' => $baseDir . '/assets/Denominator.php',
-    'Ostepan\\Lib\\Normalizator' => $baseDir . '/assets/Normalizator.php',
-    'Ostepan\\Lib\\Rational' => $baseDir . '/assets/Rational.php',
 );

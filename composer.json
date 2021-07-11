@@ -1,6 +1,7 @@
 {
     "require": {
-        "funct/funct": "^1.5"
+        "funct/funct": "^1.5",
+        "opsway/psr12-strict-coding-standard": "^0.7.0"
     },
     "autoload": {
         "psr-4": {

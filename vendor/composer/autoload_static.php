@@ -15,19 +15,48 @@ class ComposerStaticInit028d9ece12f839e30296d751344db175
     );
 
     public static $prefixLengthsPsr4 = array (
+        'W' => 
+        array (
+            'WebimpressCodingStandard\\' => 25,
+        ),
+        'S' => 
+        array (
+            'SlevomatCodingStandard\\' => 23,
+        ),
+        'P' => 
+        array (
+            'PHPStan\\PhpDocParser\\' => 21,
+        ),
         'O' => 
         array (
             'Ostepan\\Viewer\\' => 15,
             'Ostepan\\Translator\\' => 19,
             'Ostepan\\Lib\\' => 12,
+            'OpsWay\\StrictPSR12CodingStandard\\' => 33,
         ),
         'F' => 
         array (
             'Funct\\' => 6,
         ),
+        'D' => 
+        array (
+            'Dealerdirect\\Composer\\Plugin\\Installers\\PHPCodeSniffer\\' => 55,
+        ),
     );
 
     public static $prefixDirsPsr4 = array (
+        'WebimpressCodingStandard\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/webimpress/coding-standard/src/WebimpressCodingStandard',
+        ),
+        'SlevomatCodingStandard\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/slevomat/coding-standard/SlevomatCodingStandard',
+        ),
+        'PHPStan\\PhpDocParser\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/phpstan/phpdoc-parser/src',
+        ),
         'Ostepan\\Viewer\\' => 
         array (
             0 => __DIR__ . '/../..' . '/myClasses/Viewer',
@@ -40,18 +69,18 @@ class ComposerStaticInit028d9ece12f839e30296d751344db175
         array (
             0 => __DIR__ . '/../..' . '/assets',
         ),
+        'OpsWay\\StrictPSR12CodingStandard\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/opsway/psr12-strict-coding-standard/OpsWayStrictPSR12CodingStandard',
+        ),
         'Funct\\' => 
         array (
             0 => __DIR__ . '/..' . '/funct/funct/src',
         ),
-    );
-
-    public static $classMap = array (
-        'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
-        'Ostepan\\Lib\\Denom' => __DIR__ . '/../..' . '/assets/Denom.php',
-        'Ostepan\\Lib\\Denominator' => __DIR__ . '/../..' . '/assets/Denominator.php',
-        'Ostepan\\Lib\\Normalizator' => __DIR__ . '/../..' . '/assets/Normalizator.php',
-        'Ostepan\\Lib\\Rational' => __DIR__ . '/../..' . '/assets/Rational.php',
+        'Dealerdirect\\Composer\\Plugin\\Installers\\PHPCodeSniffer\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/dealerdirect/phpcodesniffer-composer-installer/src',
+        ),
     );
 
     public static function getInitializer(ClassLoader $loader)
@@ -59,7 +88,6 @@ class ComposerStaticInit028d9ece12f839e30296d751344db175
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInit028d9ece12f839e30296d751344db175::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInit028d9ece12f839e30296d751344db175::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInit028d9ece12f839e30296d751344db175::$classMap;
 
         }, null, ClassLoader::class);
     }

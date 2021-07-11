@@ -8,24 +8,23 @@ namespace Ostepan\Lib\Rational;
 
 class NormalizatorOfRationals implements NormalizatorInterface
 {
-    public function normalize(RationalInterface $rational): RationalInterface
+    public function normalize(RationalInterface $rational) : RationalInterface
     {
         if ($rational->getNumer() === 1 || $rational->getDenom() === 1) {
-
             return $rational;
-            
         } else {
-
-            $allDividers = $this->calculateDividers($rational->getNumer(), $rational->getDenom());
-            $maxDevider = $this->selectMaxCommonDeviders($allDividers);
+                $allDividers = $this->calculateDividers($rational->getNumer(), $rational->getDenom());
+                 $maxDevider = $this->selectMaxCommonDeviders($allDividers);
             $normalizedNumer = $rational->getNumer() / $maxDevider;
             $normalizedDenom = $rational->getDenom() / $maxDevider;
-            
             return new RationalNumber($normalizedNumer, $normalizedDenom);
         }
     }
-    //calculate all deviders for number(at least 1 ant the same number)
-    public function calculateDividers(int ...$numbers): array
+
+    /**
+     * Calculate all deviders for number(at least 1 ant the same number)
+     */
+    public function calculateDividers(int ...$numbers) : array
     {
         foreach ($numbers as $value) {
             for ($i = 1; $i <= $value; $i++) {
@@ -37,14 +36,13 @@ class NormalizatorOfRationals implements NormalizatorInterface
         return $deviders;
     }
 
-    private function selectMaxCommonDeviders(array $deviders): int
+    private function selectMaxCommonDeviders(array $dividers) : int
     {
-        $commonDividers =  array_filter(
-            array_count_values($deviders), fn($value) => $value > 1
+        $commonDividers = array_filter(
+            array_count_values($dividers),
+            fn($value) => $value > 1
         );
         $uniqCommonDeviders = array_keys($commonDividers);
         return array_pop($uniqCommonDeviders);
     }
-
-    
 }

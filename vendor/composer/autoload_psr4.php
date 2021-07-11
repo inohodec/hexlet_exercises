@@ -6,8 +6,13 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'WebimpressCodingStandard\\' => array($vendorDir . '/webimpress/coding-standard/src/WebimpressCodingStandard'),
+    'SlevomatCodingStandard\\' => array($vendorDir . '/slevomat/coding-standard/SlevomatCodingStandard'),
+    'PHPStan\\PhpDocParser\\' => array($vendorDir . '/phpstan/phpdoc-parser/src'),
     'Ostepan\\Viewer\\' => array($baseDir . '/myClasses/Viewer'),
     'Ostepan\\Translator\\' => array($baseDir . '/myClasses/Translator'),
     'Ostepan\\Lib\\' => array($baseDir . '/assets'),
+    'OpsWay\\StrictPSR12CodingStandard\\' => array($vendorDir . '/opsway/psr12-strict-coding-standard/OpsWayStrictPSR12CodingStandard'),
     'Funct\\' => array($vendorDir . '/funct/funct/src'),
+    'Dealerdirect\\Composer\\Plugin\\Installers\\PHPCodeSniffer\\' => array($vendorDir . '/dealerdirect/phpcodesniffer-composer-installer/src'),
 );

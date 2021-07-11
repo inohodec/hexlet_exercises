@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Ostepan\Lib\CalcAssets;
 
 use Ostepan\Lib\Rational\RationalInterface;
@@ -9,37 +11,39 @@ use Ostepan\Lib\Rational\NormalizatorOfRationals;
 abstract class CalcActions
 {
     /**
-     * if action is correct value of @status = true, in any else situation @status = false
+     * If action is correct value of @status = true,
+     * in any else situation @status = false
      */
     protected NormalizatorOfRationals $normalizer;
     protected $status = true;
-    
-    protected int $numer1, $numer2;
-    protected int $denom1, $denom2;
+    protected int $numer1;
+    protected int $numer2;
+    protected int $denom1;
+    protected int $denom2;
 
     public function __construct(RationalInterface $real1, RationalInterface $real2)
     {
         $this->normalizer = new NormalizatorOfRationals();
-        $this->numer1 = $real1->getNumer();
-        $this->numer2 = $real2->getNumer();
-        $this->denom1 = $real1->getDenom();
-        $this->denom2 = $real2->getDenom();
+            $this->numer1 = $real1->getNumer();
+            $this->numer2 = $real2->getNumer();
+            $this->denom1 = $real1->getDenom();
+            $this->denom2 = $real2->getDenom();
     }
-    
-    abstract public function calculate(): RationalNumber;
+
+    abstract public function calculate() : RationalNumber;
+
     /**
-     * Get the value of status
+     * @return status
      */
     public function getStatus()
     {
         return $this->status;
     }
 
-    protected function getNOK(): int
+    protected function getNOK() : int
     {
         $allDividers = $this->normalizer->calculateDividers($this->denom1, $this->denom2);
-        
-        $nok = 1;
+                $nok = 1;
         foreach ($allDividers as $divider) {
             $nok *= $divider;
         }
