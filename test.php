@@ -10,3 +10,5 @@ $calc = new \Ostepan\Lib\Rational\RationalCalculator($num1, $num2);
 $sum = $calc->add();
 
 echo $sum->getHumanRational();
+
+echo "Test for commit"
