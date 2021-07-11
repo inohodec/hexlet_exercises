@@ -1,0 +1,14 @@
+{
+    "require": {
+        "funct/funct": "^1.5"
+    },
+    "autoload": {
+        "psr-4": {
+            
+            "Ostepan\\Viewer\\" : "myClasses/Viewer",
+            "Ostepan\\Translator\\" : "myClasses/Translator",
+            "Ostepan\\Lib\\" : "assets"
+        
+        }
+    }
+}
