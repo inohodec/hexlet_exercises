@@ -11,4 +11,6 @@ $sum = $calc->add();
 
 echo $sum->getHumanRational();
 
-echo "Test for commit"
+echo "Test for commit";
+
+echo "Test for commit again";
