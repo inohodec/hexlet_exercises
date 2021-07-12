@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace Ostepan\Lib\CalcAssets;
 
-use Ostepan\Lib\Rational\RationalInterface;
-use Ostepan\Lib\Rational\RationalNumber;
+use Ostepan\Lib\Rational\{RationalInterface, RationalNumber};
 use Ostepan\Lib\Rational\NormalizatorOfRationals;
 
 abstract class CalcActions
@@ -30,7 +29,7 @@ abstract class CalcActions
             $this->denom2 = $real2->getDenom();
     }
 
-    abstract public function calculate() : RationalNumber;
+    abstract public function calculate(): RationalNumber;
 
     /**
      * @return status
@@ -40,7 +39,7 @@ abstract class CalcActions
         return $this->status;
     }
 
-    protected function getNOK() : int
+    protected function getNOK(): int
     {
         $allDividers = $this->normalizer->calculateDividers($this->denom1, $this->denom2);
                 $nok = 1;
