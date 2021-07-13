@@ -8,23 +8,32 @@ namespace Ostepan\Lib\Rational;
 
 class NormalizatorOfRationals implements NormalizatorInterface
 {
-    public function normalize(RationalInterface $rational) : RationalInterface
+    public function normalize(RationalInterface $rational): RationalInterface
     {
         if ($rational->getNumer() === 1 || $rational->getDenom() === 1) {
             return $rational;
         } else {
-                $allDividers = $this->calculateDividers($rational->getNumer(), $rational->getDenom());
-                 $maxDevider = $this->selectMaxCommonDeviders($allDividers);
-            $normalizedNumer = $rational->getNumer() / $maxDevider;
-            $normalizedDenom = $rational->getDenom() / $maxDevider;
+                $allDividers = $this->calculateDividers(
+                    $rational->getNumer(),
+                    $rational->getDenom()
+                );
+                  $commonDeviders = $this->selectCommonDeviders($allDividers);
+            $highestCommonDevider = $this->selectHighestValue($commonDeviders);
+                 $normalizedNumer = $rational->getNumer() / $highestCommonDevider;
+                 $normalizedDenom = $rational->getDenom() / $highestCommonDevider;
             return new RationalNumber($normalizedNumer, $normalizedDenom);
         }
     }
 
     /**
-     * Calculate all deviders for number(at least 1 ant the same number)
+     * calculateDividers
+     * * calculate deviders for all values from parametera
+     * for example 4,6 = 1, 2, 4, 1, 3, 5
+     *
+     * @param  mixed $numbers
+     * @return array
      */
-    public function calculateDividers(int ...$numbers) : array
+    public function calculateDividers(int ...$numbers): array
     {
         foreach ($numbers as $value) {
             for ($i = 1; $i <= $value; $i++) {
@@ -36,13 +45,32 @@ class NormalizatorOfRationals implements NormalizatorInterface
         return $deviders;
     }
 
-    private function selectMaxCommonDeviders(array $dividers) : int
+    /**
+     * selectMaxCommonDeviders
+     * *select the most higher value from array
+     *
+     * @param  mixed $dividers
+     * @return array of int
+     */
+    protected function selectCommonDeviders(array $dividers): array
     {
+        $countedUniqValues = array_count_values($dividers);
         $commonDividers = array_filter(
-            array_count_values($dividers),
+            $countedUniqValues,
             fn($value) => $value > 1
         );
-        $uniqCommonDeviders = array_keys($commonDividers);
-        return array_pop($uniqCommonDeviders);
+        return array_keys($commonDividers);
+    }
+
+    /**
+     * selectHighestValue
+     * * get last element of sorted(ascending) array
+     *
+     * @param  mixed $values
+     * @return int
+     */
+    protected function selectHighestValue(array $values): int
+    {
+        return array_pop($values);
     }
 }
