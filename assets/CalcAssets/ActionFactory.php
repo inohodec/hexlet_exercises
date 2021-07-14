@@ -11,10 +11,10 @@ class ActionFactory
      * Выбираем экземпляр нужного класса, кот зависит от знака введенного в калькулятор
      */
     public function getAction(
-        string $actionType, 
+        string $actionType,
         RationalInterface $rational1,
-        RationalInterface $rational2): CalcActions
-    {
+        RationalInterface $rational2
+    ): CalcActions {
         if ($actionType === "+") {
             return new Add($rational1, $rational2);
         } elseif ($actionType === "-") {

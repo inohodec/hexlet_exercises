@@ -21,7 +21,7 @@ class NormalizatorOfRationals implements NormalizatorInterface
             $highestCommonDevider = $this->selectHighestValue($commonDeviders);
                  $normalizedNumer = $rational->getNumer() / $highestCommonDevider;
                  $normalizedDenom = $rational->getDenom() / $highestCommonDevider;
-            return new RationalNumber($normalizedNumer, $normalizedDenom);
+            return new RationalNumber("{$normalizedNumer}/{$normalizedDenom}");
         }
     }
 

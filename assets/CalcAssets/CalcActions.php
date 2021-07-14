@@ -10,8 +10,8 @@ use Ostepan\Lib\Rational\NormalizatorOfRationals;
 abstract class CalcActions
 {
     /**
-     * If action is correct value of @status = true,
-     * in any else situation @status = false
+     * *If action is correct value of @status = true,
+     * *in any else situation @status = false
      */
     protected NormalizatorOfRationals $normalizer;
     protected $status = true;
@@ -41,7 +41,10 @@ abstract class CalcActions
 
     protected function getNOK(): int
     {
-        $allDividers = $this->normalizer->calculateDividers($this->denom1, $this->denom2);
+        $allDividers = $this->normalizer->calculateDividers(
+            $this->denom1,
+            $this->denom2
+        );
                 $nok = 1;
         foreach ($allDividers as $divider) {
             $nok *= $divider;
