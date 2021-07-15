@@ -15,7 +15,7 @@ class Add extends CalcActions
               $result = new RationalNumber("{$newNumer}/{$this->denom1}");
             return $this->normalizer->normalize($result);
         } else {
-            $allDividers = $this->normalizer->calculateDividers($this->denom1, $this->denom2);
+            //$allDividers = $this->normalizer->calculateDividers($this->denom1, $this->denom2);
             //наименьшее общее кратное(вычисляется произведением общих делителей)
             $nok = $this->getNOK();
             //получаем доп. множители для каждлой дроби

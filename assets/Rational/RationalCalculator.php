@@ -31,18 +31,36 @@ class RationalCalculator implements CalculatorInterface
         return $action->calculate();
     }
 
-    public function substract()
+    /**
+     * substract
+     *
+     * @return RationalNumber
+     */
+    public function substract(): RationalNumber
     {
-        return new RationalNumber("1/1");
+        $action = $this->actionFactory->getAction("-", $this->rational1, $this->rational2);
+        return $action->calculate();
     }
 
-    public function multiply()
+    /**
+     * multiply
+     *
+     * @return RationalNumber
+     */
+    public function multiply(): RationalNumber
     {
-        return new RationalNumber("1/1");
+        $action = $this->actionFactory->getAction("*", $this->rational1, $this->rational2);
+        return $action->calculate();
     }
 
-    public function split()
+    /**
+     * split
+     *
+     * @return RationalNumber
+     */
+    public function split(): RationalNumber
     {
-        return new RationalNumber("1/1");
+        $action = $this->actionFactory->getAction("/", $this->rational1, $this->rational2);
+        return $action->calculate();
     }
 }

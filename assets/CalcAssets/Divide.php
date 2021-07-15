@@ -6,8 +6,11 @@ use Ostepan\Lib\Rational\RationalNumber;
 
 class Divide extends CalcActions
 {
-    public function calculate(): RationalNumber 
+    public function calculate(): RationalNumber
     {
-        return new RationalNumber(1, 1);
+        $newNumer = $this->numer1 * $this->denom2;
+        $newDenom = $this->numer2 * $this->denom1;
+          $result = new RationalNumber("{$newNumer}/{$newDenom}");
+        return $result;
     }
 }

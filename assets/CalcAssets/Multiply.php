@@ -8,8 +8,11 @@ use Ostepan\Lib\Rational\RationalNumber;
 
 class Multiply extends CalcActions
 {
-    public function calculate() : RationalNumber
+    public function calculate(): RationalNumber
     {
-        return new RationalNumber(1, 1);
+        $newNumer = $this->numer1 * $this->numer2;
+        $newDenom = $this->denom1 * $this->denom2;
+          $result = new RationalNumber("{$newNumer}/{$newDenom}");
+        return $this->normalizer->normalize($result);
     }
 }

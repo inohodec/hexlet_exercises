@@ -45,7 +45,7 @@ abstract class CalcActions
             $this->denom1,
             $this->denom2
         );
-                $nok = 1;
+        $nok = 1;
         foreach ($allDividers as $divider) {
             $nok *= $divider;
         }
