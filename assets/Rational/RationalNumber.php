@@ -15,7 +15,7 @@ class RationalNumber implements RationalInterface
 {
     private $numer;
     private $denom;
-
+    private bool $status = true;
     public function __construct(string $rational)
     {
         $values = $this->dispatchString($rational);
@@ -92,11 +92,13 @@ class RationalNumber implements RationalInterface
      *
      * @return string
      */
+
+    
     public function getHumanRational(): string
     {
-        if ($this->numer > $this->denom) {
+        if (abs($this->numer) > $this->denom) {
             $wholePart = intval($this->numer / $this->denom);
-            $newNumer = $this->numer - ($wholePart * $this->denom);
+            $newNumer = abs($this->numer) - abs($wholePart) * $this->denom;
             if ($newNumer === 0) {
                 return "real numer is a whole number: {$wholePart}," .
                 " or in real view: {$this->numer}/{$this->denom}";
@@ -106,5 +108,29 @@ class RationalNumber implements RationalInterface
         } else {
             return "{$this->numer}/{$this->denom}";
         }
+    }
+
+    /**
+     * 
+     *
+     * @param  bool  $status
+     *
+     * @return  self
+     */
+    public function setStatus(bool $status)
+    {
+        $this->status = $status;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of status
+     *
+     * @return  bool
+     */
+    public function getStatus()
+    {
+        return $this->status;
     }
 }

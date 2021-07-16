@@ -28,7 +28,9 @@ class NormalizatorOfRationals implements NormalizatorInterface
     /**
      * calculateDividers
      * * calculate deviders for all values from parametera
-     * for example 4,6 = 1, 2, 4, 1, 3, 5
+     * * for example 4,6 = 1, 2, 4, 1, 3, 5
+     * * используем модуль числа abs($value) на случай если значение будет ниже нуля,
+     * * соответственно если не взять положительное число, тогда цикл не отработает
      *
      * @param  mixed $numbers
      * @return array
@@ -36,7 +38,7 @@ class NormalizatorOfRationals implements NormalizatorInterface
     public function calculateDividers(int ...$numbers): array
     {
         foreach ($numbers as $value) {
-            for ($i = 1; $i <= $value; $i++) {
+            for ($i = 1; $i <= abs($value); $i++) {
                 if ($value % $i === 0) {
                     $deviders[] = $i;
                 }

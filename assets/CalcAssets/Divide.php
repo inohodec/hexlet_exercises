@@ -11,6 +11,6 @@ class Divide extends CalcActions
         $newNumer = $this->numer1 * $this->denom2;
         $newDenom = $this->numer2 * $this->denom1;
           $result = new RationalNumber("{$newNumer}/{$newDenom}");
-        return $result;
+        return $this->normalizer->normalize($result);
     }
 }
